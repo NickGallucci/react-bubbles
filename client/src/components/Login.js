@@ -5,8 +5,8 @@ import { Redirect } from 'react-router-dom';
 class Login extends React.Component {
 	state = {
 		credentials: {
-			username: '',
-			password: ''
+			username: 'Lambda School',
+			password: 'i<3Lambd4'
 		}
 	};
 
@@ -22,7 +22,7 @@ class Login extends React.Component {
 	login = e => {
 		e.preventDefault();
 		axiosWithAuth()
-			.post('/api/login', this.state.credentials)
+			.post(`/api/login`, this.state.credentials)
 			.then(res => {
 				localStorage.setItem('token', res.data.payload);
 				this.props.history.push('/bubblepage');
